@@ -47,7 +47,7 @@ public final class ThreadFactoryBuilder {
     }
 
     public ThreadFactoryBuilder setThreadFactory(ThreadFactory backingThreadFactory) {
-        Asserts.notNull(uncaughtExceptionHandler, CommonErrorCode.THREAD_POOL_FACTORY_NULLABLE_ERROR);
+        Asserts.notNull(backingThreadFactory, CommonErrorCode.THREAD_POOL_FACTORY_NULLABLE_ERROR);
         this.backingThreadFactory = backingThreadFactory;
         return this;
     }
