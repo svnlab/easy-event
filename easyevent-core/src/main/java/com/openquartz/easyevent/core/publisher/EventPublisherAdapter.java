@@ -41,14 +41,20 @@ public abstract class EventPublisherAdapter implements EventPublisher {
             return true;
         }
 
-        PublisherInterceptorChain.triggerAfterCompletion(event, context, null);
-
         // 触发EventBus
         EventBus directEventBus = getDirectEventBus();
 
         checkNotNull(directEventBus);
 
-        DispatchInvokeResult invokeResult = directEventBus.post(event);
+        DispatchInvokeResult invokeResult;
+        try {
+            invokeResult = directEventBus.post(event);
+        } catch (Exception ex) {
+            PublisherInterceptorChain.triggerAfterCompletion(event, context, ex);
+            throw ex;
+        }
+        // 事件派发完成后触发 afterCompletion
+        PublisherInterceptorChain.triggerAfterCompletion(event, context, null);
         return invokeResult.isSuccess();
     }
 
