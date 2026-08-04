@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.openquartz</groupId>
         <artifactId>easy-event</artifactId>
-        <version>1.5.0-beta</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>easyevent-admin</artifactId>
