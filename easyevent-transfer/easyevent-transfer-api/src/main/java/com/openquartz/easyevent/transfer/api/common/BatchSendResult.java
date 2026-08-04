@@ -35,7 +35,7 @@ public class BatchSendResult {
     }
 
     public void addFailedIndex(List<Integer> failedIndexList) {
-        sendCompletedIndexList.addAll(failedIndexList);
+        sendFailedIndexList.addAll(failedIndexList);
     }
 
     public void addCompletedIndex(Integer completedEventIndex) {
@@ -43,7 +43,7 @@ public class BatchSendResult {
     }
 
     public void addFailedIndex(Integer failedEventIndex) {
-        sendCompletedIndexList.add(failedEventIndex);
+        sendFailedIndexList.add(failedEventIndex);
     }
 
     public List<Integer> getSendCompletedIndexList() {

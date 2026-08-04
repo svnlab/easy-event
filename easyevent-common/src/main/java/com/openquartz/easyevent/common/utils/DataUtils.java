@@ -21,7 +21,7 @@ public final class DataUtils {
     }
 
     public static void checkUpdateOne(int actual) {
-        checkInsertNums(1, actual);
+        checkUpdateNums(1, actual);
     }
 
     public static void checkUpdateNums(int affect, int actual) {
@@ -29,7 +29,7 @@ public final class DataUtils {
     }
 
     public static void checkDeleteOne(int actual) {
-        checkInsertNums(1, actual);
+        checkDeleteNums(1, actual);
     }
 
     public static void checkDeleteNums(int affect, int actual) {
