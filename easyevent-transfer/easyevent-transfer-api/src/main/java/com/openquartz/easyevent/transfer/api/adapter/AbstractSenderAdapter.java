@@ -123,6 +123,8 @@ public abstract class AbstractSenderAdapter implements EventSender {
                 getEventStorageService().sendFailed(eId, ex);
                 return true;
             });
+            // 发送失败，不能继续标记发送成功
+            return;
         }
         // 存储执行
         getTransactionSupport().execute(() -> {
